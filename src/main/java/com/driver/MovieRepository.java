@@ -83,12 +83,16 @@ public class MovieRepository {
     // (Note that there can be some movies on your watchlist that aren’t mapped to any of the director.
     // Make sure you do not remove them.)
     public void deleteAllDirectors(){
-        for(String director : directorHashMap.keySet()){
-            // delete directors and movies from directorMovie map
-            // if both are common in the director map and directorMovie map
-            if(directorMovieHashMap.containsKey(director)){
-                directorMovieHashMap.remove(director);
+        directorHashMap = new HashMap<>();
+        HashSet<String> movieSet = new HashSet<>();
+        for(String director : directorMovieHashMap.keySet()){
+            movieSet.addAll(directorMovieHashMap.get(director));
+        }
+        for (String movie : movieSet){
+            if(movieHashMap.containsKey(movie)){
+                movieHashMap.remove(movie);
             }
         }
+        directorMovieHashMap = new HashMap<>();
     }
 }
