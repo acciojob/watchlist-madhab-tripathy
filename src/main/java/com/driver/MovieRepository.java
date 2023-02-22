@@ -83,7 +83,7 @@ public class MovieRepository {
     // (Note that there can be some movies on your watchlist that aren’t mapped to any of the director.
     // Make sure you do not remove them.)
     public void deleteAllDirectors(){
-        directorHashMap = new HashMap<>();
+//        directorHashMap = new HashMap<>();
         HashSet<String> movieSet = new HashSet<>();
         for(String director : directorMovieHashMap.keySet()){
             movieSet.addAll(directorMovieHashMap.get(director));
@@ -93,6 +93,6 @@ public class MovieRepository {
                 movieHashMap.remove(movie);
             }
         }
-        directorMovieHashMap = new HashMap<>();
+//        directorMovieHashMap = new HashMap<>();
     }
 }
